@@ -1,0 +1,10 @@
+.btn_select {
+  margin: 0;
+  outline: none;
+  background-color: #fff;
+  border-radius: 10px;
+  border: $gray 3px solid;
+}
+.btn_select.active {
+  border: $purple 3px solid;
+}
