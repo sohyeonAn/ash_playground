@@ -1,19 +1,90 @@
-.btn_select {
-  margin: 0;
+.btn_item {
   outline: none;
   background-color: #fff;
+  border: none;
   border-radius: 10px;
-  border: #eae8fe 3px solid;
+  -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
 }
 
-.btn_select.active {
-  border: #6327fe 3px solid;
+.btn_item.active {
+  -webkit-box-shadow: 0 0 0 4px #6327fe;
+          box-shadow: 0 0 0 4px #6327fe;
+}
+
+.btn_white {
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: none;
+  -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.cont_chosen {
+  padding: 12px;
+  background-color: #eae8fe;
+  overflow-y: scroll;
+  border-radius: 5px;
+  border: 1px solid #bdbdbd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 6px;
+}
+
+.cont_chosen .item {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.cont_chosen .item img {
+  width: 18px;
+  height: 33px;
+}
+
+.cont_chosen .item .product_name {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 9px;
+}
+
+.cont_chosen .item .quantity {
+  min-width: 30px;
+  min-height: 30px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 30px;
+  vertical-align: middle;
+}
+
+.btn_purple {
+  background-color: #6327fe;
+  color: #fff;
+  border-radius: 5px;
+  border: 2px solid #bdbdbd;
 }
 
 #app {
   position: relative;
   width: 100vw;
-  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -31,8 +102,15 @@
 }
 
 #app .header_logo {
-  width: 30%;
+  width: 386px;
+  height: 180px;
   margin-bottom: 45px;
+}
+
+#app .header_logo img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
 }
 
 #app main {
@@ -42,14 +120,13 @@
   gap: 28px;
 }
 
-#app main section {
+#app main #cont_selection {
   background-color: #fff;
   padding: 31px 27px;
 }
 
-#app main section .list_product {
+#app main #cont_selection .list_product {
   height: 295px;
-  overflow-y: scroll;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
@@ -57,7 +134,7 @@
   gap: 12px;
 }
 
-#app main section .list_product button {
+#app main #cont_selection .list_product button {
   padding: 10px 11px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -75,19 +152,65 @@
           align-items: center;
 }
 
-#app main section .list_product button img {
+#app main #cont_selection .list_product button img {
   width: 36px;
   height: 65px;
 }
 
-#app main section .list_product button .product_name {
+#app main #cont_selection .list_product button .product_name {
   font-size: 9px;
 }
 
-#app main section .list_product button .price {
+#app main #cont_selection .list_product button .price {
   background-color: #6327fe;
   border-radius: 50px;
   padding: 5px 15px;
   color: #fff;
   font-size: 12px;
+}
+
+#app main .cont_bottom {
+  margin-top: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  gap: 12px;
+}
+
+#app main .cont_bottom .balance {
+  padding: 10px;
+  background-color: #eae8fe;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#app main .cont_bottom input {
+  padding: 10px 5px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+}
+
+#app main .cont_bottom input::-webkit-input-placeholder {
+  color: #bdbdbd;
+}
+
+#app main .cont_bottom input:-ms-input-placeholder {
+  color: #bdbdbd;
+}
+
+#app main .cont_bottom input::-ms-input-placeholder {
+  color: #bdbdbd;
+}
+
+#app main .cont_bottom input::placeholder {
+  color: #bdbdbd;
 }
