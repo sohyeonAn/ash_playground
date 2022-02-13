@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
 .btn_item {
   outline: none;
   background-color: #fff;
@@ -19,6 +20,13 @@
   border: none;
   -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.btn_purple {
+  background-color: #6327fe;
+  color: #fff;
+  border-radius: 5px;
+  border: 2px solid #bdbdbd;
 }
 
 .cont_chosen {
@@ -75,19 +83,13 @@
   vertical-align: middle;
 }
 
-.btn_purple {
-  background-color: #6327fe;
-  color: #fff;
-  border-radius: 5px;
-  border: 2px solid #bdbdbd;
-}
-
 #app {
   position: relative;
-  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100vw;
+  height: 100vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -99,6 +101,14 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   background-color: #eae8fe;
+}
+
+#app * {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+#app button {
+  cursor: pointer;
 }
 
 #app .header_logo {
@@ -120,13 +130,17 @@
   gap: 28px;
 }
 
+#app main #cont_selection,
+#app main #cont_order {
+  width: 360px;
+}
+
 #app main #cont_selection {
   background-color: #fff;
   padding: 31px 27px;
 }
 
 #app main #cont_selection .list_product {
-  height: 295px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
@@ -135,6 +149,7 @@
 }
 
 #app main #cont_selection .list_product button {
+  width: 100%;
   padding: 10px 11px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -162,6 +177,7 @@
 }
 
 #app main #cont_selection .list_product button .price {
+  width: 60%;
   background-color: #6327fe;
   border-radius: 50px;
   padding: 5px 15px;
@@ -213,4 +229,72 @@
 
 #app main .cont_bottom input::placeholder {
   color: #bdbdbd;
+}
+
+#app main #cont_order {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#app main #cont_order .budget {
+  margin: 9px 27px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  background-color: #eae8fe;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 14px;
+}
+
+#app main #cont_order .budget > span:last-child {
+  font-weight: bold;
+}
+
+#app main #cont_order .cont_get {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-top: 20px solid #eae8fe;
+  padding: 25px 27px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#app main #cont_order .cont_get .title {
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#app main #cont_order .cont_get ul {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 13px 0 6px 0;
+}
+
+#app main #cont_order .cont_get .total_price {
+  font-size: 12px;
+  text-align: right;
 }

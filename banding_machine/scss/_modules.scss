@@ -17,6 +17,13 @@
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
 }
 
+.btn_purple {
+  background-color: $purple;
+  color: #fff;
+  border-radius: 5px;
+  border: 2px solid $darkGray;
+}
+
 .cont_chosen {
   padding: 12px;
   background-color: $gray;
@@ -56,11 +63,4 @@
       vertical-align: middle;
     }
   }
-}
-
-.btn_purple {
-  background-color: $purple;
-  color: #fff;
-  border-radius: 5px;
-  border: 2px solid $darkGray;
 }
