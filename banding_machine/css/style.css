@@ -8,7 +8,7 @@
           box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
 }
 
-.btn_item.active {
+.btn_item.active, .btn_item:hover {
   -webkit-box-shadow: 0 0 0 4px #6327fe;
           box-shadow: 0 0 0 4px #6327fe;
 }
@@ -29,7 +29,7 @@
   border: 2px solid #bdbdbd;
 }
 
-.cont_chosen {
+.cont_chosen ul {
   padding: 12px;
   background-color: #eae8fe;
   overflow-y: scroll;
@@ -83,13 +83,25 @@
   vertical-align: middle;
 }
 
+body {
+  background-color: #eae8fe;
+}
+
+body * {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body button {
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 #app {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100vw;
-  height: 100vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -100,15 +112,7 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  background-color: #eae8fe;
-}
-
-#app * {
-  font-family: "Noto Sans KR", sans-serif;
-}
-
-#app button {
-  cursor: pointer;
+  padding-bottom: 30px;
 }
 
 #app .header_logo {
@@ -136,6 +140,8 @@
 }
 
 #app main #cont_selection {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-color: #fff;
   padding: 31px 27px;
 }
@@ -148,9 +154,38 @@
   gap: 12px;
 }
 
+#app main #cont_selection .list_product li {
+  position: relative;
+}
+
+#app main #cont_selection .list_product li.soldout::before {
+  content: "";
+  display: block;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+}
+
+#app main #cont_selection .list_product li.soldout::after {
+  content: "";
+  background-image: url(../images/Sold-out.svg);
+  display: block;
+  width: 62px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 50;
+}
+
 #app main #cont_selection .list_product button {
   width: 100%;
-  padding: 10px 11px;
+  padding: 10px 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -172,20 +207,22 @@
   height: 65px;
 }
 
-#app main #cont_selection .list_product button .product_name {
+#app main #cont_selection .list_product button > span:first-child {
   font-size: 9px;
 }
 
-#app main #cont_selection .list_product button .price {
-  width: 60%;
+#app main #cont_selection .list_product button > span:last-child {
+  width: 80%;
   background-color: #6327fe;
   border-radius: 50px;
-  padding: 5px 15px;
+  padding: 5px 0;
   color: #fff;
   font-size: 12px;
 }
 
 #app main .cont_bottom {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin-top: 20px;
   display: -ms-grid;
   display: grid;
@@ -231,11 +268,18 @@
   color: #bdbdbd;
 }
 
+#app main .cont_bottom .cont_chosen ul {
+  height: 106px;
+}
+
 #app main #cont_order {
   background-color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -287,14 +331,47 @@
   text-align: center;
 }
 
-#app main #cont_order .cont_get ul {
+#app main #cont_order .cont_get .cont_chosen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 13px 0 6px 0;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  margin: 13px 0 6px 0;
+}
+
+#app main #cont_order .cont_get .cont_chosen ul {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 #app main #cont_order .cont_get .total_price {
   font-size: 12px;
   text-align: right;
+}
+
+@media screen and (max-width: 360px) {
+  #app {
+    background-color: #fff;
+  }
+  #app .header_logo {
+    width: 166px;
+    height: 78px;
+    margin-bottom: 18px;
+  }
+  #app main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 20px;
+  }
+  #app main #cont_selection {
+    padding: 0 27px;
+  }
+  #app main #cont_order .cont_get {
+    border: none;
+  }
 }
