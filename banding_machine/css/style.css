@@ -109,6 +109,8 @@
 
 #app button {
   cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 #app .header_logo {
@@ -148,9 +150,38 @@
   gap: 12px;
 }
 
+#app main #cont_selection .list_product li {
+  position: relative;
+}
+
+#app main #cont_selection .list_product li.soldout::before {
+  content: "";
+  display: block;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+}
+
+#app main #cont_selection .list_product li.soldout::after {
+  content: "";
+  background-image: url(../images/Sold-out.svg);
+  display: block;
+  width: 62px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 50;
+}
+
 #app main #cont_selection .list_product button {
   width: 100%;
-  padding: 10px 11px;
+  padding: 10px 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -177,15 +208,17 @@
 }
 
 #app main #cont_selection .list_product button .price {
-  width: 60%;
+  width: 80%;
   background-color: #6327fe;
   border-radius: 50px;
-  padding: 5px 15px;
+  padding: 5px 0;
   color: #fff;
   font-size: 12px;
 }
 
 #app main .cont_bottom {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin-top: 20px;
   display: -ms-grid;
   display: grid;
