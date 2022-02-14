@@ -4,9 +4,11 @@
   border: none;
   border-radius: 10px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
-}
-.btn_item.active {
-  box-shadow: 0 0 0 4px rgb(99, 39, 254);
+
+  &.active,
+  &:hover {
+    box-shadow: 0 0 0 4px rgb(99, 39, 254);
+  }
 }
 
 .btn_white {
@@ -25,14 +27,16 @@
 }
 
 .cont_chosen {
-  padding: 12px;
-  background-color: $gray;
-  overflow-y: scroll;
-  border-radius: 5px;
-  border: 1px solid $darkGray;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  ul {
+    padding: 12px;
+    background-color: $gray;
+    overflow-y: scroll;
+    border-radius: 5px;
+    border: 1px solid $darkGray;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
 
   .item {
     padding: 5px 10px;
