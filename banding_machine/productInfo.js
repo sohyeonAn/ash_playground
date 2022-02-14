@@ -3,14 +3,14 @@ const products = [
     id: 0,
     name: "Original_Cola",
     price: 1000,
-    stock: 10,
+    stock: 3,
     image: "Original_Cola.svg",
   },
   {
     id: 1,
     name: "Violet_Cola",
     price: 1200,
-    stock: 10,
+    stock: 1,
     image: "Violet_Cola.svg",
   },
   {

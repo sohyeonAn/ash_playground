@@ -50,12 +50,15 @@ function depositBtnClickHandler() {
 
 function itemClickHandler(e) {
   const target = e.target;
+  let $selectItem;
   let productName = "";
 
   // 선택한 아이템의 name 가져오기
   if (target.tagName === "BUTTON") {
+    $selectItem = target;
     productName = target.querySelector(".product_name").textContent;
   } else if (target.parentElement.tagName === "BUTTON") {
+    $selectItem = target.parentElement;
     if (target.classList.contains("product_name")) {
       productName = target.textContent;
     } else {
@@ -64,11 +67,13 @@ function itemClickHandler(e) {
     }
   }
 
-  // 선택한 아이템의 가격이 잔액보다 작은지 확인
+  // 선택한 아이템의 가격이 잔액보다 작고
+  // 재고 수량 보다 적게 선택됐는지 확인
   const itemInfo = products.find((item) => item.name === productName);
   const currBalance = parseInt($balance.textContent);
+
   if (itemInfo.price <= currBalance) {
-    $balance.textContent = `${currBalance - itemInfo.price}원`;
+    $selectItem.classList.add("active");
 
     // 선택한 아이템이 selectItems에 존재하는지 확인
     let foundIdx = selectItems.findIndex(
@@ -76,15 +81,42 @@ function itemClickHandler(e) {
     );
 
     if (foundIdx >= 0) {
-      selectItems[foundIdx].quantity = selectItems[foundIdx].quantity + 1;
+      if (selectItems[foundIdx].stock >= 1) {
+        selectItems[foundIdx].quantity = selectItems[foundIdx].quantity + 1;
+        selectItems[foundIdx].stock = selectItems[foundIdx].stock - 1;
+        if (selectItems[foundIdx].stock === 0) {
+          $selectItem.classList.remove("active");
+          $selectItem.parentElement.classList.add("soldout");
+        }
+      } else {
+        alert(
+          `재고 수량이 부족합니다. (${selectItems[foundIdx].name}의 남은 수량: ${selectItems[foundIdx].stock})`
+        );
+        return;
+      }
     } else {
-      selectItems.push({
-        ...itemInfo,
-        quantity: 1,
-      });
+      if (itemInfo.stock >= 1) {
+        selectItems.push({
+          ...itemInfo,
+          stock: itemInfo.stock - 1,
+          quantity: 1,
+        });
+
+        if (itemInfo.stock - 1 === 0) {
+          console.log($selectItem);
+          $selectItem.classList.remove("active");
+          $selectItem.parentElement.classList.add("soldout");
+        }
+      } else {
+        alert(
+          `재고 수량이 부족합니다. (${selectItems[foundIdx].name}의 남은 수량: ${selectItems[foundIdx].stock})`
+        );
+        return;
+      }
     }
 
     localStorage.setItem("selectItems", JSON.stringify(selectItems));
+    $balance.textContent = `${currBalance - itemInfo.price}원`;
     addBasket();
   } else {
     alert("잔액이 부족합니다.");
