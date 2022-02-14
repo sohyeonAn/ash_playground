@@ -37,6 +37,7 @@
       width: 360px;
     }
     #cont_selection {
+      box-sizing: border-box;
       background-color: #fff;
       padding: 31px 27px;
 
@@ -131,6 +132,7 @@
     #cont_order {
       background-color: #fff;
       display: flex;
+      justify-content: center;
       flex-direction: column;
 
       .budget {
@@ -163,12 +165,40 @@
         }
 
         ul {
+          min-height: 360px;
           flex: 1;
           margin: 13px 0 6px 0;
         }
         .total_price {
           font-size: 12px;
           text-align: right;
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  #app {
+    background-color: #fff;
+
+    .header_logo {
+      width: 166px;
+      height: 78px;
+      margin-bottom: 18px;
+    }
+
+    main {
+      flex-direction: column;
+      gap: 20px;
+
+      #cont_selection {
+        padding: 0 27px;
+      }
+
+      #cont_order {
+        .cont_get {
+          border: none;
         }
       }
     }
