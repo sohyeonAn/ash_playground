@@ -8,3 +8,4 @@
 4. landing_page_template (랜딩 페이지 템플릿) [바로가기](https://github.com/sohyeonAn/ash_playground/tree/main/landing_page_template/)
 5. todo_app (할 일 목록) [바로가기](https://github.com/sohyeonAn/ash_playground/tree/main/todo_app/)
 6. banding_machine (콜라 자판기) [바로가기](https://github.com/sohyeonAn/ash_playground/tree/main/banding_machine/)
+7. news_viewer (카테고리 별 뉴스 보기) [바로가기](https://github.com/sohyeonAn/ash_playground/tree/main/news_viewer/)
